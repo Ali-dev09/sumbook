@@ -8,7 +8,7 @@ import {useNavigate} from "react-router-dom";
 const BookStore = (props) => {
   const navigate = useNavigate();
   const categories = ["Marketing", "Business", "Self-Development", "Stories"];
-  console.log(books.length)
+  
 
   const BookCard = ({ book }) => {
     const { image, name, rating, priceCents , id} = book;

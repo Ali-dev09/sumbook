@@ -38,6 +38,8 @@ export default function Order(props) {
 
   function sendOrder(array, price, deliveryOption) {
     props.saveOrder(array, price, deliveryOption);
+    cart.cartArray = [];
+    props.zeroCart();
     travel("orders");
   }
 

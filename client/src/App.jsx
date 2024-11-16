@@ -31,9 +31,12 @@ export default function App() {
   useEffect(() => {
     updateCart();
   }, [cart.cartArray]); // This effect will run whenever cart.cartArray changes
-
-  console.log(cartQuantity); // To check updated cart quantity
+  
+  function zeroCart(){
+    setCartQuantity(0)
+  }
   const Headercomponent = <Header cartLength={cartQuantity} />;
+  
   return (
     <>
       <Router>
@@ -74,16 +77,21 @@ export default function App() {
                   saveOrder={(array, price, date) => {
                     orders.addOrder(array, price, date);
                   }}
+                  zeroCart={() => {zeroCart()}}
                 />
               </>
             }
             path="/order"
           />
-          <Route element={
-            <>
-              <OrdersPage />
-            </>
-          } path="orders"/>
+          <Route
+            element={
+              <>
+                {Headercomponent}
+                <OrdersPage />
+              </>
+            }
+            path="orders"
+          />
         </Routes>
       </Router>
     </>
