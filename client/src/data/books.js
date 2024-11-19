@@ -159,7 +159,7 @@ export const books = [
   {
     id: "w1x2y3z4a5b6c7d8e9f0",
     image:
-      "https://th.bing.com/th/id/OIP.zmimrFHYhcTGzEyOu50GuwAAAA?w=115&h=180&c=7&r=0&o=5&pid=1.7",
+      'https://th.bing.com/th/id/OIP.LSyy-2BJN2Ji94Erjmv2XgHaHa?w=157&h=180&c=7&r=0&o=5&pid=1.7',
     name: "Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones",
     rating: {
       stars: 4.8,
@@ -174,7 +174,7 @@ export const books = [
   {
     id: "g1h2i3j4k5l6m7n8o9p0",
     image:
-      "https://th.bing.com/th/id/OIP.zmimrFHYhcTGzEyOu50GuwAAAA?w=115&h=180&c=7&r=0&o=5&pid=1.7",
+      "https://th.bing.com/th/id/OIP.ElI2KsnWf3ViFBNtqRTA_QHaKd?w=128&h=180&c=7&r=0&o=5&pid=1.7",
     name: "The Power of Habit: Why We Do What We Do in Life and Business",
     rating: {
       stars: 4.7,
@@ -189,7 +189,7 @@ export const books = [
   {
     id: "q1r2s3t4u5v6w7x8y9z0",
     image:
-      "https://th.bing.com/th/id/OIP.zmimrFHYhcTGzEyOu50GuwAAAA?w=115&h=180&c=7&r=0&o=5&pid=1.7",
+      "https://th.bing.com/th/id/OIP.B0KOupZ6DQDctovPSOJ2cgHaLQ?w=128&h=195&c=7&r=0&o=5&pid=1.7",
     name: "Mindset: The New Psychology of Success",
     rating: {
       stars: 4.5,
@@ -204,7 +204,7 @@ export const books = [
   {
     id: "a1b2c3d4e5f6g7h8i9j1",
     image:
-      "https://th.bing.com/th/id/OIP.zmimrFHYhcTGzEyOu50GuwAAAA?w=115&h=180&c=7&r=0&o=5&pid=1.7",
+      "https://th.bing.com/th/id/OIP.rECCC648b3AA1FxE9dqNnQHaHa?w=181&h=181&c=7&r=0&o=5&pid=1.7",
     name: "Grit: The Power of Passion and Perseverance",
     rating: {
       stars: 4.6,
@@ -219,7 +219,7 @@ export const books = [
   {
     id: "b1c2d3e4f5g6h7i8j9k0",
     image:
-      "https://th.bing.com/th/id/OIP.zmimrFHYhcTGzEyOu50GuwAAAA?w=115&h=180&c=7&r=0&o=5&pid=1.7",
+      "https://th.bing.com/th/id/OIP.NGofr7d8y6lcAUn2SeXXPgHaLZ?w=119&h=183&c=7&r=0&o=5&pid=1.7",
     name: "To Kill a Mockingbird",
     rating: {
       stars: 4.9,
@@ -234,7 +234,7 @@ export const books = [
   {
     id: "l1m2n3o4p5q6r7s8t9u0",
     image:
-      "https://th.bing.com/th/id/OIP.zmimrFHYhcTGzEyOu50GuwAAAA?w=115&h=180&c=7&r=0&o=5&pid=1.7",
+      "https://th.bing.com/th/id/OIP.pZIb2MUTkwhfiMYF-nfsAQHaLb?w=184&h=284&c=7&r=0&o=5&pid=1.7",
     name: "1984",
     rating: {
       stars: 4.8,
@@ -249,7 +249,7 @@ export const books = [
   {
     id: "v1w2x3y4z5a6b7c8d9e0",
     image:
-      "https://th.bing.com/th/id/OIP.zmimrFHYhcTGzEyOu50GuwAAAA?w=115&h=180&c=7&r=0&o=5&pid=1.7",
+      "https://th.bing.com/th/id/OIP.eTO09xqdGYiKU913AIb0vQHaJt?w=184&h=241&c=7&r=0&o=5&pid=1.7",
     name: "The Great Gatsby",
     rating: {
       stars: 4.7,
@@ -264,7 +264,7 @@ export const books = [
   {
     id: "f1g2h3i4j5k6l7m8n9o0",
     image:
-      "https://th.bing.com/th/id/OIP.zmimrFHYhcTGzEyOu50GuwAAAA?w=115&h=180&c=7&r=0&o=5&pid=1.7",
+      'https://th.bing.com/th/id/OIP.hBU1O52AiQX7CRs77-MGjwHaK9?w=184&h=273&c=7&r=0&o=5&pid=1.7',
     name: "Pride and Prejudice",
     rating: {
       stars: 4.6,
@@ -279,7 +279,7 @@ export const books = [
   {
     id: "p1q2r3s4t5u6v7w8x9y0",
     image:
-      "https://th.bing.com/th/id/OIP.zmimrFHYhcTGzEyOu50GuwAAAA?w=115&h=180&c=7&r=0&o=5&pid=1.7",
+      "https://th.bing.com/th/id/OIP.wBf6DUm3qFwNopvMoINx1gHaJF?w=184&h=226&c=7&r=0&o=5&pid=1.7",
     name: "The Catcher in the Rye",
     rating: {
       stars: 4.5,

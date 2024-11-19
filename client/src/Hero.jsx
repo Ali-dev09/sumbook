@@ -39,7 +39,7 @@ const Hero = () => {
         {/* Buttons */}
         <div className="buttons-container">
           <button className="button" onClick={browseBooks}>Browse Books</button>
-          <button className="button">Latest Releases</button>
+         
         </div>
       </section>
     </>
