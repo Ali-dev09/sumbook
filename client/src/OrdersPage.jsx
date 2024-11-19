@@ -1,26 +1,31 @@
-import React, { useEffect, useState } from 'react';  // Use React hooks
+import React, { useEffect, useState } from 'react';  
 import { useNavigate } from 'react-router-dom';
 import { books } from './data/books.js';
-import orders from './scripts/orders.js';  // Import the orders object
+import orders from './scripts/orders.js';
 
 export default function OrdersPage() {
   const navigate = useNavigate();
-  
-  // Initialize orderList state with orders.ordersArray and set up reactivity
-  const [orderList, setOrderList] = useState(orders.ordersArray);
 
-  // Update orderList whenever orders.ordersArray is updated (e.g., when new orders are added)
+  // Initialize orderList state with orders.ordersArray and set up reactivity
+  const [orderList, setOrderList] = useState([]);  // Default to empty array if undefined
+
   useEffect(() => {
-    setOrderList(orders.ordersArray);
-  }, [orders.ordersArray]);  // Only run this effect when orders.ordersArray changes
+    // Load the orders when the component mounts
+    orders.loadOrders();
+
+    // Now that orders are loaded, set orderList state
+    setOrderList(orders.ordersArray || []);  // Ensure ordersArray is defined
+
+  }, []);  // Empty dependency array to run only once on component mount
+
   const buttonStyle = {
     padding: '12px 24px',
     fontSize: '1rem',
     color: '#fff',
-    backgroundColor: '#ff7f11', // Orange color
+    backgroundColor: '#ff7f11',
     border: 'none',
     borderRadius: '5px',
-    boxShadow: '0 6px 12px rgba(255, 127, 17, 0.4)', // Floating shadow effect
+    boxShadow: '0 6px 12px rgba(255, 127, 17, 0.4)',
     cursor: 'pointer',
     transition: 'transform 0.3s',
     outline: 'none'
@@ -30,9 +35,7 @@ export default function OrdersPage() {
     <>
       <div className='no-orders'>
         {orderList.length === 0 ? (
-          <h1 style={
-          {marginTop:"100px"}
-          }>No orders yet!</h1>
+          <h1 style={{ marginTop: "100px" }}>No orders yet!</h1>
         ) : (
           orderList.map(order => (
             <div key={order.id} className="order-container">
@@ -57,8 +60,9 @@ export default function OrdersPage() {
                   })}
                 </tbody>
               </table>
-              <h3>Total Price: ${(order.price ).toFixed(2)}</h3> {/* Ensure price is in dollars */}
+              <h3>Total Price: ${(order.price).toFixed(2)}</h3>
               <h3>Delivery Date: {order.date}</h3>
+              <h3>Order ID: {order.id}</h3>
               <hr />
             </div>
           ))
