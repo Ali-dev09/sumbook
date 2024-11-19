@@ -28,9 +28,11 @@ export default function OrdersPage() {
 
   return (
     <>
-      <div>
+      <div className='no-orders'>
         {orderList.length === 0 ? (
-          <h1>No orders yet!</h1>
+          <h1 style={
+          {marginTop:"100px"}
+          }>No orders yet!</h1>
         ) : (
           orderList.map(order => (
             <div key={order.id} className="order-container">
@@ -46,7 +48,7 @@ export default function OrdersPage() {
                   {order.itemsArray.map(item => {
                     const matchingItem = books.find(book => book.id === item.bookId);
                     return (
-                      <tr key={item.bookId}> {/* Make sure to use item.bookId as the key */}
+                      <tr key={matchingItem.id}>
                         <td>{matchingItem ? matchingItem.name : 'Unknown'}</td>
                         <td>{item.quantity}</td>
                         <td>${(matchingItem ? matchingItem.priceCents : 0) / 100}</td>

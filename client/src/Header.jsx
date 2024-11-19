@@ -10,14 +10,19 @@ export default function Header(props){
     <>
       <header className="header">
         <h1 onClick={() => {navigate('/')}} className="header-title">Book Haven</h1>
+        
+          
+        
         <div className="cart-container">
-          <button onClick={() => {
-      travel('orders')
-          }}>orders</button>
+          <button  onClick={() => {
+            travel('orders')
+                }} className='orders'>orders</button>
           <FaShoppingCart onClick={() => {
       travel('checkout')
           }} className="cart-icon" />
-          <span onClick={travel} className="cart-count">{cartLength}</span> {/* Displaying cart count */}
+          <span onClick={() => {
+      travel("checkout")
+          }} className="cart-count">{cartLength}</span> {/* Displaying cart count */}
         </div>
       </header>
     </>

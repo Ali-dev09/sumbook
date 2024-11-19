@@ -9,6 +9,7 @@ import Header from "./Header.jsx";
 import cart from "./scripts/cart.js";
 import orders from "./scripts/orders.js";
 import OrdersPage from "./OrdersPage.jsx";
+
 export default function App() {
   const [bookId, setBookId] = useState();
   const [cartQuantity, setCartQuantity] = useState(0);
@@ -31,17 +32,19 @@ export default function App() {
   useEffect(() => {
     updateCart();
   }, [cart.cartArray]); // This effect will run whenever cart.cartArray changes
-  
-  function zeroCart(){
-    setCartQuantity(0)
+
+  function zeroCart() {
+    setCartQuantity(0);
   }
+
   const Headercomponent = <Header cartLength={cartQuantity} />;
-  
+
   return (
     <>
-      <Router>
+      <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <Routes>
           <Route
+            path="/"
             element={
               <>
                 {Headercomponent}
@@ -49,27 +52,27 @@ export default function App() {
                 <Row updateCart={updateCart} getId={(id) => setBookId(id)} />
               </>
             }
-            path="/"
           />
           <Route
+            path="/detail"
             element={
               <>
                 {Headercomponent}
                 <DetailBook updateCart={updateCart} bookId={bookId} />
               </>
             }
-            path="/detail"
           />
           <Route
+            path="/checkout"
             element={
               <>
                 {Headercomponent}
                 <Checkout />
               </>
             }
-            path="/checkout"
           />
           <Route
+            path="/order"
             element={
               <>
                 {Headercomponent}
@@ -77,20 +80,19 @@ export default function App() {
                   saveOrder={(array, price, date) => {
                     orders.addOrder(array, price, date);
                   }}
-                  zeroCart={() => {zeroCart()}}
+                  zeroCart={zeroCart}
                 />
               </>
             }
-            path="/order"
           />
           <Route
+            path="/orders"
             element={
               <>
                 {Headercomponent}
                 <OrdersPage />
               </>
             }
-            path="orders"
           />
         </Routes>
       </Router>
