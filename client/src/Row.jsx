@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import { books } from "./data/books.js"; // Ensure you have the data imported
 import "./styles/Home.css";
 import cart from "./scripts/cart.js";
@@ -8,16 +8,38 @@ const BookStore = (props) => {
   const navigate = useNavigate();
   const categories = ["Marketing", "Business", "Self-Development", "Stories"];
 
+  // Ref for dialog
+  const dialogRef = useRef(null);
+
+  // State for storing the book name that was added
+  const [bookName, setBookName] = useState("");
+
+  // Separate function to show the dialog with the book name
+  const showDialog = (bookName) => {
+    setBookName(bookName);
+    dialogRef.current.showModal(); // Show the dialog
+    setTimeout(() => {
+      dialogRef.current.close(); // Close the dialog after 1 second
+    }, 1000);
+  };
+
   const BookCard = ({ book }) => {
     const { image, name, rating, priceCents, id } = book;
     const price = (priceCents / 100).toFixed(2); // Convert cents to dollars
+
+    // Function to handle navigation to the book details page
     function travel(id) {
       navigate("/detail");
       props.getId(id);
     }
-    function updateCartLength() {
-      props.updateCart();
+
+    // Function to add the book to the cart (reverted to previous state)
+    function handleAddToCart(id) {
+      cart.addToCart(id); // Add the book to the cart
+      showDialog(name); // Show the dialog with the book name
+      props.updateCart(); // Update the cart icon/length or related UI if needed
     }
+
     return (
       <div className="book-card">
         <img src={image} alt={name} />
@@ -27,26 +49,24 @@ const BookStore = (props) => {
           Rating: {rating.stars}/10 ({rating.count} reviews)
         </p>
         <div className="card-buttons">
-        <button
-          onClick={() => {
-            cart.addToCart(id);
-            updateCartLength();
-          }}
-          className="buy-button"
-        >
-          buy
-        </button>
-        <button
-          className="read-more-button"
-          onClick={() => {
-            travel(id);
-          }}
-        >
-          read more
-        </button>
+          <button
+            onClick={() => {
+              handleAddToCart(id); // Trigger adding to cart and showing the dialog
+            }}
+            className="buy-button"
+          >
+            buy
+          </button>
+          <button
+            className="read-more-button"
+            onClick={() => {
+              travel(id);
+            }}
+          >
+            read more
+          </button>
         </div>
       </div>
-        
     );
   };
 
@@ -67,10 +87,15 @@ const BookStore = (props) => {
     <div>
       {categories.map((category) => {
         const booksInCategory = books.filter(
-          (book) => book.category === category,
+          (book) => book.category === category
         );
         return <Row key={category} title={category} books={booksInCategory} />;
       })}
+
+      {/* Dialog to show the "added" message */}
+      <dialog ref={dialogRef} className="add-dialog">
+        <p>Added: {bookName}</p>
+      </dialog>
     </div>
   );
 };
