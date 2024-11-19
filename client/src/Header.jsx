@@ -9,20 +9,23 @@ export default function Header(props){
   return(
     <>
       <header className="header">
-        <h1 onClick={() => {navigate('/')}} className="header-title">Book Haven</h1>
+        <h1 onClick={() => {navigate('/')}} className="header-title">SUM BOOK</h1>
         
           
         
         <div className="cart-container">
-          <button  onClick={() => {
-            travel('orders')
-                }} className='orders'>orders</button>
-          <FaShoppingCart onClick={() => {
-      travel('checkout')
-          }} className="cart-icon" />
-          <span onClick={() => {
-      travel("checkout")
-          }} className="cart-count">{cartLength}</span> {/* Displaying cart count */}
+          <div className='right-part'>
+            <button  onClick={() => {
+              travel('orders')
+                  }} className='orders'>my orders</button>
+            <FaShoppingCart onClick={() => {
+            travel('checkout')
+            }} className="cart-icon" />
+            <span onClick={() => {
+            travel("checkout")
+            }} className="cart-count">{cartLength}</span> {/* Displaying cart count */}
+          </div>
+          
         </div>
       </header>
     </>

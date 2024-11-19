@@ -39,7 +39,7 @@
 }
 
 .cart-icon {
-  font-size: 24px; /* Adjust size as needed */
+  font-size: 40px; /* Adjust size as needed */
   cursor: pointer;
 }
 
@@ -74,6 +74,12 @@
   perspective: 800px; /* For 3D effect */
 
 }
+
+.right-part {
+  display: flex;
+  align-items: center;  /* Vertically centers the content */
+}
+
 
 .book-image {
   width: 120px;

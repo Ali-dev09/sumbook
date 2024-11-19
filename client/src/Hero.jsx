@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './styles/Home.css';
-import { FaShoppingCart } from 'react-icons/fa'; // Importing an icon for the cart
+import {FaShoppingCart} from 'react-icons/fa'
 import cart from "./scripts/cart.js";
 import { useNavigate } from "react-router-dom";
 const Hero = () => {
@@ -33,7 +33,7 @@ const Hero = () => {
         </div>
 
         {/* Hero Text */}
-        <h1 className="hero-text">Welcome to Book Haven</h1>
+        <h1 className="hero-text"><i>Welcome to sum book</i></h1>
         <p className="hero-subtext">Discover your next great read</p>
 
         {/* Buttons */}

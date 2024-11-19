@@ -1,9 +1,9 @@
 import React, { useState, useRef } from "react";
-import { books } from "./data/books.js"; // Ensure you have the data imported
+import { books } from "./data/books.js"; 
 import "./styles/Home.css";
 import cart from "./scripts/cart.js";
 import { useNavigate } from "react-router-dom";
-
+import {FaCheckCircle} from 'react-icons/fa'
 const BookStore = (props) => {
   const navigate = useNavigate();
   const categories = ["Marketing", "Business", "Self-Development", "Stories"];
@@ -20,7 +20,7 @@ const BookStore = (props) => {
     dialogRef.current.showModal(); // Show the dialog
     setTimeout(() => {
       dialogRef.current.close(); // Close the dialog after 1 second
-    }, 1000);
+    }, 6000);
   };
 
   const BookCard = ({ book }) => {
@@ -94,6 +94,8 @@ const BookStore = (props) => {
 
       {/* Dialog to show the "added" message */}
       <dialog ref={dialogRef} className="add-dialog">
+        <FaCheckCircle />
+        
         <p>Added: {bookName}</p>
       </dialog>
     </div>
