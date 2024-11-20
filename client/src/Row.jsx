@@ -20,7 +20,7 @@ const BookStore = (props) => {
     dialogRef.current.showModal(); // Show the dialog
     setTimeout(() => {
       dialogRef.current.close(); // Close the dialog after 1 second
-    }, 2000);
+    }, 1500);
   };
 
   const BookCard = ({ book }) => {

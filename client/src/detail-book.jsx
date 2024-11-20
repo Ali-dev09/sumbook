@@ -1,24 +1,37 @@
 import { books } from "./data/books.js";
 import { useNavigate } from "react-router-dom";
 import "./styles/detail-book.css";
-import { FaBuyNLarge } from "react-icons/fa";
-import cart from './scripts/cart.js';
+;
+import { useState, usetEffect, useRef } from "react";
+import { FaCheckCircle } from "react-icons/fa";
+import cart from "./scripts/cart.js";
 function DetailBook(props) {
+  
   const navigate = useNavigate();
   const book = books.find((book) => book.id === props.bookId);
+
+  const dialogRef = useRef(null);
+
+  const [bookName, setBookName] = useState("");
+
+  const showDialog = (bookName) => {
+    setBookName(bookName);
+    dialogRef.current.showModal(); 
+    setTimeout(() => {
+      dialogRef.current.close();
+    }, 1500);
+  };
 
   function backHome() {
     navigate("/");
   }
-  function buy(id){
-    cart.addToCart(id)
+  function buy(id) {
+    cart.addToCart(id);
   }
-  function updateCart(){
-     props.updateCart()
+  function updateCart() {
+    props.updateCart();
   }
   if (book) {
-    
-  
     return (
       <div className="page-container">
         <div className="details-head">
@@ -49,8 +62,21 @@ function DetailBook(props) {
         >
           Back Home
         </button>
-         <button onClick={() => {buy(book.id) 
-                                updateCart()}} className="back-home-button" >buy</button>
+        <button
+          onClick={() => {
+            buy(book.id);
+            updateCart();
+            showDialog(book.name)
+          }}
+          className="back-home-button"
+        >
+          buy
+        </button>
+        <dialog ref={dialogRef} className="add-dialog">
+          <FaCheckCircle />
+
+          <p>Added: {bookName}</p>
+        </dialog>
       </div>
     );
   } else {
@@ -65,7 +91,6 @@ function DetailBook(props) {
         >
           Back Home
         </button>
-       
       </>
     );
   }
